@@ -1,7 +1,36 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@ui/*": ["./src/components/ui/*"],
+      "@layout/*": ["./src/components/layout/*"],
+      "@navigation/*": ["./src/components/navigation/*"],
+      "@media/*": ["./src/components/media/*"],
+      "@portfolio/*": ["./src/components/portfolio/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@hooks/*": ["./src/lib/hooks/*"],
+      "@utils/*": ["./src/lib/utils/*"],
+      "@constants/*": ["./src/lib/constants/*"],
+      "@context/*": ["./src/lib/context/*"],
+      "@api/*": ["./src/lib/api/*"],
+      "@assets/*": ["./src/assets/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "target": "es2015",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strict": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", ".next", "out"]
 }
