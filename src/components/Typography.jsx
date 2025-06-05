@@ -2,8 +2,8 @@
 
 import React from "react";
 import styled from "@emotion/styled";
-import { EdLink as NextLink } from "@/components/EdLink";
 import { poppins500, inter } from "@/styles";
+import NextLink from "next/link";
 
 const propNames = ["primary", "muted"];
 
@@ -62,11 +62,7 @@ export const Paragraph = ({ children, className = "", ...props }) => (
 );
 
 export const Link = ({ children, href, className = "", ...props }) => (
-  <DefaultLink
-    className={`${inter.className} ${className}`}
-    href={href}
-    {...props}
-  >
+  <DefaultLink href={href} className={`${inter.className} ${className}`} {...props}>
     {children}
   </DefaultLink>
 );
