@@ -12,6 +12,8 @@ const HeroWrapper = styled(Box)(({ theme }) => ({
   width: '100%',
   // 21:9 aspect ratio for cinematic look
   paddingTop: '42.85%', // (9/21) * 100%
+  backgroundColor: '#000', // Match video background color
+  marginBottom: '-6px', // Remove gap between sections
   
   [theme.breakpoints.down('md')]: {
     // 16:9 aspect ratio for smaller screens
@@ -27,6 +29,10 @@ const VideoContainer = styled(Box)({
   height: '100%',
   zIndex: 0,
   overflow: 'hidden',
+  backgroundColor: '#000', // Match background color
+  display: 'flex', // Ensure video fills container
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 const ContentOverlay = styled(Box)(({ theme }) => ({
@@ -66,7 +72,16 @@ const HeroTitle = styled(Typography)(({ theme }) => ({
  */
 export const HeroSection = () => {
   return (
-    <Section fluid>
+    <Section
+      fluid
+      background="#000" // Set background color to black
+      sx={{
+        padding: 0,
+        '& .MuiContainer-root': {
+          padding: 0, // Override Container's default padding
+        }
+      }}
+    >
       <HeroWrapper>
         <VideoContainer>
           <VideoPlayer
@@ -79,7 +94,8 @@ export const HeroSection = () => {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: 'center center'
+              objectPosition: 'center center',
+              display: 'block' // Remove any potential inline spacing
             }}
           />
         </VideoContainer>
