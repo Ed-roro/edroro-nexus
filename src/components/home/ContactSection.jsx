@@ -56,11 +56,11 @@ export const ContactSection = () => {
     <Section background="#f8f9fa" id="contact">
       <Grid container spacing={6}>
         <Grid item xs={12} md={6}>
-          <SectionTitle variant="h2" className={poppins600.className}>
+          <SectionTitle variant="h2" className={poppins600.className} color="#333333">
             Get In Touch
           </SectionTitle>
           
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" paragraph sx={{ color: '#333333', fontWeight: 500 }}>
             Have a project in mind or want to collaborate? Feel free to reach out!
           </Typography>
           
@@ -125,7 +125,7 @@ export const ContactSection = () => {
         
         <Grid item xs={12} md={6}>
           <ContactCard elevation={3}>
-            <Typography variant="h5" gutterBottom className={poppins600.className}>
+            <Typography variant="h5" gutterBottom className={poppins600.className} color="#333333">
               Contact Information
             </Typography>
             
@@ -135,10 +135,10 @@ export const ContactSection = () => {
                   <EmailIcon />
                 </IconWrapper>
                 <Box>
-                  <Typography variant="subtitle2" color="text.secondary">
+                  <Typography variant="subtitle2" sx={{ color: '#666666', fontWeight: 500 }}>
                     Email
                   </Typography>
-                  <Typography variant="body1">
+                  <Typography variant="body1" sx={{ color: '#333333' }}>
                     contact@edroro.com
                   </Typography>
                 </Box>
@@ -149,10 +149,10 @@ export const ContactSection = () => {
                   <LocationOnIcon />
                 </IconWrapper>
                 <Box>
-                  <Typography variant="subtitle2" color="text.secondary">
+                  <Typography variant="subtitle2" sx={{ color: '#666666', fontWeight: 500 }}>
                     Location
                   </Typography>
-                  <Typography variant="body1">
+                  <Typography variant="body1" sx={{ color: '#333333' }}>
                     New York, NY
                   </Typography>
                 </Box>
@@ -163,10 +163,10 @@ export const ContactSection = () => {
                   <PhoneIcon />
                 </IconWrapper>
                 <Box>
-                  <Typography variant="subtitle2" color="text.secondary">
+                  <Typography variant="subtitle2" sx={{ color: '#666666', fontWeight: 500 }}>
                     Phone
                   </Typography>
-                  <Typography variant="body1">
+                  <Typography variant="body1" sx={{ color: '#333333' }}>
                     +1 (555) 123-4567
                   </Typography>
                 </Box>
@@ -174,10 +174,10 @@ export const ContactSection = () => {
             </Box>
             
             <Box mt={4}>
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom color="#333333">
                 Connect on Social Media
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" sx={{ color: '#666666', fontWeight: 500 }}>
                 Follow me on social media for updates on new projects and content.
               </Typography>
               {/* Social media icons would go here */}

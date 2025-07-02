@@ -24,10 +24,11 @@ const SectionSubtitle = styled(Typography)(({ theme }) => ({
   fontSize: '1.25rem',
   marginBottom: theme.spacing(6),
   textAlign: 'center',
-  color: theme.palette.text.secondary,
+  color: '#666666', // Darker than default secondary text
   maxWidth: '800px',
   margin: '0 auto',
   marginBottom: theme.spacing(6),
+  fontWeight: 500, // Slightly bolder for better readability
 }));
 
 const ViewAllButton = styled(Button)(({ theme }) => ({
@@ -80,7 +81,7 @@ export const PortfolioSection = () => {
 
   return (
     <Section id="portfolio">
-      <SectionTitle variant="h2" className={poppins600.className}>
+      <SectionTitle variant="h2" className={poppins600.className} color="#333333">
         Featured Projects
       </SectionTitle>
       

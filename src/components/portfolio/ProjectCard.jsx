@@ -55,7 +55,7 @@ export const ProjectCard = ({
       title={title}
       subtitle={formattedDate}
     >
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+      <Typography variant="body2" sx={{ color: '#666666', fontWeight: 500, mb: 2 }}>
         {description}
       </Typography>
       

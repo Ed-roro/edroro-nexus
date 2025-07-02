@@ -107,13 +107,13 @@ export const Card = ({
       
       <StyledCardContent compact={compact}>
         {title && (
-          <Typography variant="h6" component="h2" gutterBottom>
+          <Typography variant="h6" component="h2" gutterBottom sx={{ color: '#333333' }}>
             {title}
           </Typography>
         )}
         
         {subtitle && (
-          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+          <Typography variant="subtitle1" sx={{ color: '#666666', fontWeight: 500 }} gutterBottom>
             {subtitle}
           </Typography>
         )}

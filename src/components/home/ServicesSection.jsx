@@ -25,10 +25,11 @@ const SectionSubtitle = styled(Typography)(({ theme }) => ({
   fontSize: '1.25rem',
   marginBottom: theme.spacing(6),
   textAlign: 'center',
-  color: theme.palette.text.secondary,
+  color: '#666666', // Darker than default secondary text
   maxWidth: '800px',
   margin: '0 auto',
   marginBottom: theme.spacing(6),
+  fontWeight: 500, // Slightly bolder for better readability
 }));
 
 const ServiceCard = styled(Paper)(({ theme }) => ({
@@ -67,6 +68,7 @@ const ServiceTitle = styled(Typography)(({ theme }) => ({
   fontSize: '1.5rem',
   fontWeight: 600,
   marginBottom: theme.spacing(2),
+  color: '#333333', // Darker color for better readability
 }));
 
 /**
@@ -98,7 +100,7 @@ export const ServicesSection = () => {
 
   return (
     <Section background="#f8f9fa" id="services">
-      <SectionTitle variant="h2" className={poppins600.className}>
+      <SectionTitle variant="h2" className={poppins600.className} color="#333333">
         Services & Expertise
       </SectionTitle>
       
@@ -118,7 +120,7 @@ export const ServicesSection = () => {
                 {service.title}
               </ServiceTitle>
               
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" sx={{ color: '#666666', fontWeight: 500 }}>
                 {service.description}
               </Typography>
             </ServiceCard>
