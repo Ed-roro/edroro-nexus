@@ -1,2 +1,2 @@
-// Export all navigation components (navbar, menu, sidebar)
+// Export all navigation components
 export * from './Navbar';

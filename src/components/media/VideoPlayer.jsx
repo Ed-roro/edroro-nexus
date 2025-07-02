@@ -91,7 +91,9 @@ export const VideoPlayer = ({
   autoPlay = false,
   muted = false,
   controls = false,
+  loop = false,
   className = '',
+  style = {},
 }) => {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(autoPlay);
@@ -222,9 +224,11 @@ export const VideoPlayer = ({
         poster={poster}
         autoPlay={autoPlay}
         muted={muted}
+        loop={loop}
         controls={false}
         playsInline
         onClick={togglePlay}
+        style={style}
       />
       
       <Controls visible={showControls}>

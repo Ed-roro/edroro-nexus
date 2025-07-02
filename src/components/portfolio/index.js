@@ -1,2 +1,2 @@
-// Export all portfolio components (project cards, galleries, showcases)
+// Export all portfolio components
 export * from './ProjectCard';

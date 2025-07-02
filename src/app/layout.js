@@ -3,6 +3,7 @@ import { inter, poppins500 } from "@/styles";
 import "./globals.css";
 import "../styles/global.css";
 import ThemeRegistry from "@/styles/ThemeRegistry";
+import { Navbar } from "@/components/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${poppins500.className}`}>
         <ThemeRegistry>
+          <Navbar transparent />
           {children}
         </ThemeRegistry>
       </body>

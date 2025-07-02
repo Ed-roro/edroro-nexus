@@ -1,2 +1,2 @@
-// Export all media components (video players, 3D viewers, music players)
+// Export all media components
 export * from './VideoPlayer';
