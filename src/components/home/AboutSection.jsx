@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles';
 import { poppins600 } from '@/styles';
 import { Section } from '@/components/layout';
 import Link from 'next/link';
+import Image from 'next/image';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 // Styled components
@@ -42,15 +43,15 @@ export const AboutSection = () => {
     <Section background="paper" id="about">
       <Grid container spacing={6} alignItems="center">
         <Grid item xs={12} md={6}>
-          <SectionTitle variant="h2" className={poppins600.className}>
+          <SectionTitle variant="h2" className={poppins600.className} color="#333333">
             Creating Digital <HighlightText>Experiences</HighlightText>
           </SectionTitle>
           
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" paragraph sx={{ color: '#333333', fontWeight: 500 }}>
             Welcome to Ed.Roro Nexus, where creativity meets technology. I specialize in creating immersive digital experiences through 3D animation, game development, and music production.
           </Typography>
           
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" paragraph sx={{ color: '#333333', fontWeight: 500 }}>
             With a passion for pushing creative boundaries and technical excellence, I bring ideas to life through compelling visuals, interactive experiences, and captivating soundscapes.
           </Typography>
           
@@ -71,17 +72,23 @@ export const AboutSection = () => {
         <Grid item xs={12} md={6}>
           <Box
             sx={{
-              backgroundColor: 'grey.200',
               borderRadius: 2,
               height: 400,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              width: '100%',
+              position: 'relative',
+              overflow: 'hidden',
             }}
           >
-            <Typography variant="subtitle1" color="text.secondary">
-              Profile Image / 3D Model Placeholder
-            </Typography>
+            <Image
+              src="/assets/images/profile/creative-style_ed.jpg"
+              alt="Ed.Roro Creative Profile"
+              fill
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center',
+              }}
+              priority
+            />
           </Box>
         </Grid>
       </Grid>
