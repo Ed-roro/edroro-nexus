@@ -5,7 +5,7 @@ import {
   ServicesSection,
   PortfolioSection,
   ContactSection
-} from '@/components/home';
+} from './';
 
 export default function Home() {
   return (
