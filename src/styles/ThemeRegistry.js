@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import { ThemeProvider } from "@mui/material/styles";
+import { useState, useEffect } from "react";
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { useServerInsertedHTML } from "next/navigation";
-import theme from "./theme";
+import { createAppTheme } from "./theme";
+import { ThemeProvider, useTheme } from "@/lib/context/ThemeContext";
 
 // This implementation is based on the MUI documentation for Next.js App Router
-export default function ThemeRegistry({ children }) {
+function ThemeRegistry({ children }) {
   const [{ cache, flush }] = useState(() => {
     const cache = createCache({
       key: "mui-cache",
@@ -60,10 +61,29 @@ export default function ThemeRegistry({ children }) {
 
   return (
     <CacheProvider value={cache}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
+      <ThemeProvider>
+        <MuiThemeRegistryWithTheme>{children}</MuiThemeRegistryWithTheme>
       </ThemeProvider>
     </CacheProvider>
   );
 }
+
+// Inner component that uses the theme context
+function MuiThemeRegistryWithTheme({ children }) {
+  const { mode } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState(createAppTheme('light'));
+  
+  // Update theme when mode changes
+  useEffect(() => {
+    setCurrentTheme(createAppTheme(mode));
+  }, [mode]);
+
+  return (
+    <MuiThemeProvider theme={currentTheme}>
+      <CssBaseline />
+      {children}
+    </MuiThemeProvider>
+  );
+}
+
+export default ThemeRegistry;
