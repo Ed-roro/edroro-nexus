@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from 'react';
-import { 
-  AppBar, 
-  Toolbar, 
-  IconButton, 
-  Typography, 
-  Button, 
-  Box, 
-  Drawer, 
-  List, 
-  ListItem, 
-  ListItemButton, 
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Button,
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
   ListItemText,
   useScrollTrigger,
   Container
@@ -23,6 +23,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/constants/appConstants';
 import { poppins500 } from '@/styles';
+import { ThemeToggle } from '@/components/ui';
 
 // Styled components
 const StyledAppBar = styled(AppBar)(({ theme, transparent, trigger }) => ({
@@ -114,6 +115,9 @@ export const Navbar = ({ logo, transparent = false }) => {
             </ListItem>
           );
         })}
+        <ListItem sx={{ justifyContent: 'center', mt: 2 }}>
+          <ThemeToggle />
+        </ListItem>
       </List>
     </Box>
   );
@@ -187,6 +191,7 @@ export const Navbar = ({ logo, transparent = false }) => {
                   </NavButton>
                 );
               })}
+              <ThemeToggle />
             </Box>
           </Toolbar>
         </Container>
