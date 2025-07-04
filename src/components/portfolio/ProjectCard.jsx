@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { formatDate } from '@/lib/utils/dateUtils';
+import { useTheme } from '@/lib/context/ThemeContext';
 
 // Styled components
 const TagsContainer = styled('div')(({ theme }) => ({
@@ -42,6 +43,7 @@ export const ProjectCard = ({
   date,
   link,
 }) => {
+  const { mode } = useTheme();
   const formattedDate = date ? formatDate(date, { format: 'medium' }) : null;
   
   return (
@@ -54,8 +56,16 @@ export const ProjectCard = ({
       overlay
       title={title}
       subtitle={formattedDate}
+      themeMode={mode}
     >
-      <Typography variant="body2" sx={{ color: '#666666', fontWeight: 500, mb: 2 }}>
+      <Typography
+        variant="body2"
+        sx={{
+          color: mode === 'dark' ? '#cccccc' : '#666666',
+          fontWeight: 500,
+          mb: 2
+        }}
+      >
         {description}
       </Typography>
       

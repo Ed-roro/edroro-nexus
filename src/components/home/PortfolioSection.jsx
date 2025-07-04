@@ -7,24 +7,26 @@ import { Section } from '@/components/layout';
 import { ProjectCard } from '@/components/portfolio';
 import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useTheme } from '@/lib/context/ThemeContext';
 
 // Styled components
-const SectionTitle = styled(Typography)(({ theme }) => ({
+const SectionTitle = styled(Typography)(({ theme, mode }) => ({
   fontSize: '2.5rem',
   fontWeight: 600,
   marginBottom: theme.spacing(1),
   textAlign: 'center',
+  color: mode === 'dark' ? '#ffffff' : '#333333',
   
   [theme.breakpoints.down('md')]: {
     fontSize: '2rem',
   },
 }));
 
-const SectionSubtitle = styled(Typography)(({ theme }) => ({
+const SectionSubtitle = styled(Typography)(({ theme, mode }) => ({
   fontSize: '1.25rem',
   marginBottom: theme.spacing(6),
   textAlign: 'center',
-  color: '#666666', // Darker than default secondary text
+  color: mode === 'dark' ? '#cccccc' : '#666666',
   maxWidth: '800px',
   margin: '0 auto',
   marginBottom: theme.spacing(6),
@@ -39,6 +41,7 @@ const ViewAllButton = styled(Button)(({ theme }) => ({
  * Portfolio section for the homepage
  */
 export const PortfolioSection = () => {
+  const { mode } = useTheme();
   // Sample projects data
   const featuredProjects = [
     {
@@ -81,11 +84,15 @@ export const PortfolioSection = () => {
 
   return (
     <Section id="portfolio">
-      <SectionTitle variant="h2" className={poppins600.className} color="#333333">
+      <SectionTitle
+        variant="h2"
+        className={poppins600.className}
+        mode={mode}
+      >
         Featured Projects
       </SectionTitle>
       
-      <SectionSubtitle variant="subtitle1">
+      <SectionSubtitle variant="subtitle1" mode={mode}>
         Explore a selection of my recent work across different creative disciplines.
       </SectionSubtitle>
       

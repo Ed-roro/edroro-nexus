@@ -7,14 +7,16 @@ import { Section } from '@/components/layout';
 import Link from 'next/link';
 import Image from 'next/image';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useTheme } from '@/lib/context/ThemeContext';
 
 // Styled components
-const SectionTitle = styled(Typography)(({ theme }) => ({
+const SectionTitle = styled(Typography)(({ theme, mode }) => ({
   fontSize: '2.5rem',
   fontWeight: 600,
   marginBottom: theme.spacing(4),
   position: 'relative',
   paddingBottom: theme.spacing(2),
+  color: mode === 'dark' ? '#ffffff' : '#333333',
   
   '&::after': {
     content: '""',
@@ -39,19 +41,35 @@ const HighlightText = styled('span')(({ theme }) => ({
  * About/Introduction section for the homepage
  */
 export const AboutSection = () => {
+  const { mode } = useTheme();
+  
   return (
     <Section background="paper" id="about">
       <Grid container spacing={6} alignItems="center">
         <Grid item xs={12} md={6}>
-          <SectionTitle variant="h2" className={poppins600.className} color="#333333">
+          <SectionTitle variant="h2" className={poppins600.className} mode={mode}>
             Creating Digital <HighlightText>Experiences</HighlightText>
           </SectionTitle>
           
-          <Typography variant="body1" paragraph sx={{ color: '#333333', fontWeight: 500 }}>
+          <Typography
+            variant="body1"
+            paragraph
+            sx={{
+              color: mode === 'dark' ? '#ffffff' : '#333333',
+              fontWeight: 500
+            }}
+          >
             Welcome to Ed.Roro Nexus, where creativity meets technology. I specialize in creating immersive digital experiences through 3D animation, game development, and music production.
           </Typography>
           
-          <Typography variant="body1" paragraph sx={{ color: '#333333', fontWeight: 500 }}>
+          <Typography
+            variant="body1"
+            paragraph
+            sx={{
+              color: mode === 'dark' ? '#ffffff' : '#333333',
+              fontWeight: 500
+            }}
+          >
             With a passion for pushing creative boundaries and technical excellence, I bring ideas to life through compelling visuals, interactive experiences, and captivating soundscapes.
           </Typography>
           

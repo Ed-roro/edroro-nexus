@@ -8,6 +8,7 @@ import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import MovieIcon from '@mui/icons-material/Movie';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import CodeIcon from '@mui/icons-material/Code';
+import { useTheme } from '@/lib/context/ThemeContext';
 
 // Styled components
 const SectionTitle = styled(Typography)(({ theme }) => ({
@@ -21,11 +22,11 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const SectionSubtitle = styled(Typography)(({ theme }) => ({
+const SectionSubtitle = styled(Typography)(({ theme, mode }) => ({
   fontSize: '1.25rem',
   marginBottom: theme.spacing(6),
   textAlign: 'center',
-  color: '#666666', // Darker than default secondary text
+  color: mode === 'dark' ? '#cccccc' : '#666666',
   maxWidth: '800px',
   margin: '0 auto',
   marginBottom: theme.spacing(6),
@@ -64,17 +65,18 @@ const IconWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-const ServiceTitle = styled(Typography)(({ theme }) => ({
+const ServiceTitle = styled(Typography)(({ theme, mode }) => ({
   fontSize: '1.5rem',
   fontWeight: 600,
   marginBottom: theme.spacing(2),
-  color: '#333333', // Darker color for better readability
+  color: mode === 'dark' ? '#ffffff' : '#333333',
 }));
 
 /**
  * Services/Skills section for the homepage
  */
 export const ServicesSection = () => {
+  const { mode } = useTheme();
   const services = [
     {
       title: '3D Animation',
@@ -99,12 +101,16 @@ export const ServicesSection = () => {
   ];
 
   return (
-    <Section background="#f8f9fa" id="services">
-      <SectionTitle variant="h2" className={poppins600.className} color="#333333">
+    <Section background={mode === 'dark' ? 'default' : '#f8f9fa'} id="services">
+      <SectionTitle
+        variant="h2"
+        className={poppins600.className}
+        color={mode === 'dark' ? '#ffffff' : '#333333'}
+      >
         Services & Expertise
       </SectionTitle>
       
-      <SectionSubtitle variant="subtitle1">
+      <SectionSubtitle variant="subtitle1" mode={mode}>
         Specialized in creating digital content across multiple disciplines, combining technical skills with creative vision.
       </SectionSubtitle>
       
@@ -116,11 +122,17 @@ export const ServicesSection = () => {
                 {service.icon}
               </IconWrapper>
               
-              <ServiceTitle variant="h5" className={poppins600.className}>
+              <ServiceTitle variant="h5" className={poppins600.className} mode={mode}>
                 {service.title}
               </ServiceTitle>
               
-              <Typography variant="body2" sx={{ color: '#666666', fontWeight: 500 }}>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: mode === 'dark' ? '#cccccc' : '#666666',
+                  fontWeight: 500
+                }}
+              >
                 {service.description}
               </Typography>
             </ServiceCard>

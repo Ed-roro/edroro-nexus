@@ -3,6 +3,7 @@
 import { Card as MuiCard, CardContent, CardMedia, CardActions, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { inter } from '@/styles';
+import { useTheme } from '@/lib/context/ThemeContext';
 
 // Custom styled Card component using Emotion
 const StyledCard = styled(MuiCard)(({ theme, elevation = 1, interactive = false }) => ({
@@ -86,10 +87,15 @@ export const Card = ({
   subtitle,
   actions,
   compact = false,
+  themeMode,
   ...rest
 }) => {
+  const { mode } = useTheme();
+  // Use provided themeMode prop if available, otherwise use context mode
+  const currentMode = themeMode || mode;
+  
   return (
-    <StyledCard 
+    <StyledCard
       className={`${inter.className} ${className}`}
       elevation={elevation}
       interactive={interactive}
@@ -107,13 +113,25 @@ export const Card = ({
       
       <StyledCardContent compact={compact}>
         {title && (
-          <Typography variant="h6" component="h2" gutterBottom sx={{ color: '#333333' }}>
+          <Typography
+            variant="h6"
+            component="h2"
+            gutterBottom
+            sx={{ color: currentMode === 'dark' ? '#ffffff' : '#333333' }}
+          >
             {title}
           </Typography>
         )}
         
         {subtitle && (
-          <Typography variant="subtitle1" sx={{ color: '#666666', fontWeight: 500 }} gutterBottom>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              color: currentMode === 'dark' ? '#cccccc' : '#666666',
+              fontWeight: 500
+            }}
+            gutterBottom
+          >
             {subtitle}
           </Typography>
         )}
